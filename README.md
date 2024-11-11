@@ -4,6 +4,9 @@
 
 A simple application backend for books CRUD.
 Please rename .env.example for .env and set .env file variables before start aplication.  
+
+PS: This project runs on Node version 20.11.1 and npm version 10.5.0.  
+
 PS. This project accepts CORS requests from the frontend at http://localhost:4000.
 ```
 APP_PORT=3000 -> Set port app list
