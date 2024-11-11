@@ -11,12 +11,29 @@ import { UsersService } from './users.service';
 import { UsersEntity } from './users.entity';
 import { AuthService } from 'src/auth/auth.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
 
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
+  @ApiOperation({ summary: 'Get Token' })
+  @ApiBody({
+    type: UsersEntity,
+    description: 'Email and password to login',
+    examples: {
+      'application/json': {
+        value: {
+          email: 'user@example.com',
+          password: 'password123',
+        },
+      },
+    },
+  })
+  @ApiResponse({ status: 201, description: 'Token.' })
+  @ApiResponse({ status: 400, description: 'Invalid data.' })
   async login(@Body() body: { email: string; password: string }) {
     const user = await this.authService.validateUser(body.email, body.password);
     if (user) {
