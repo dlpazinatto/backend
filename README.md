@@ -3,7 +3,8 @@
 ## Description
 
 A simple application backend for books CRUD.
-Please rename .env.example for .env and set .env file variables before start aplication.
+Please rename .env.example for .env and set .env file variables before start aplication.  
+PS. This project accepts CORS requests from the frontend at http://localhost:4000.
 ```
 APP_PORT=3000 -> Set port app list
 DB_HOST= -> set mysql server host
