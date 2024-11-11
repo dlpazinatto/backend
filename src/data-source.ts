@@ -10,7 +10,7 @@ export const AppDataSource = (configService: ConfigService) =>
     password: configService.get<string>('DB_PASSWORD'),
     database: configService.get<string>('DB_DATABASE'),
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
-    synchronize: false,
+    synchronize: true,
     logging: false,
     migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
     subscribers: [],
